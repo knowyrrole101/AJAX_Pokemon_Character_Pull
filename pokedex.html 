@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>Pokedex</title>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		
+
+
+
+		<script> 
+			$(document).ready(function(){
+				var pokemon_data = '';
+				var pokemon = '';
+				for(var i = 1;i < 106; i++)	{
+					pokemon += "<img id='"+i+"'src='http://pokeapi.co/media/img/"+ i +".png'>";
+				}
+				//display all pokemon images 
+				$('div.pokemons').html(pokemon);
+				//display pokemon data on click in div box to right.
+				 $('img').click(function() {
+				 	//current clicked pokemon id
+				 	var current_pokemon_id = $(this).attr("id");
+				 	console.log(current_pokemon_id);
+				 	$.get("http://pokeapi.co/api/v1/pokemon/" + current_pokemon_id ,function(response){
+				 			console.log(response);
+				 		$('p.inside-box').html("<h4>"+response.name+"</h4>"
+				 				+ "<img src='http://pokeapi.co/media/img/"+current_pokemon_id+".png'>" 
+				 				+ "<h5> Types<h5>" 	
+				 				+ "<ul><li>" + response.types[0].name + "</li></ul>" 
+				 				+ "<h5> Height<h5>" 
+				 				+ "<ul><li>" + response.height + "</li></ul>" 
+				 				+ "<h5> Weight<h5>" 
+				 				+"<ul><li>" + response.weight + "</li></ul>" 	
+				 			);
+				 		
+				 		// $('p.inside-box').html("<hl>"+response.name+"</h4>");
+				 		// $('p.inside-box').html("<h4>"+response.name+"</h4>");
+				 		// $('p.inside-box').html("<h4>"+response.name+"</h4>");
+
+				 		//$('p.inside-box').html('')	
+				 	},"json")})
+				 	
+					
+
+
+
+			})
+
+			
+
+
+
+
+		</script>
+		<style>
+		.pokemons {
+			width: 950px;
+			padding: 20px; 
+			display: inline-block;
+			border: 1px solid lightgray; 
+			vertical-align: top;
+		}
+  		.status-insidebar {
+			width: 400px;
+			height: 570px; 
+			display: inline-block;
+			border: 1px solid lightgray;
+			background-color: red; 
+		}
+		.inside-box {
+			margin-top: 20px;
+			margin-left: 30px;
+			padding: 20px;
+			width: 300px;
+			height: 480px; 
+			background-color: white; 
+		}	
+		</style>
+		</head>
+		<body>
+			<div class='pokemons' id='pokemon'> 
+
+			Hello 
+
+			</div>
+			
+			<div class='status-insidebar'>
+				<p class='inside-box'>
+					Data from pokemon 
+				</p>
+			</div>
+
+
+		</body>
+		</html>		
