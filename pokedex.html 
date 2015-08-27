@@ -4,10 +4,6 @@
 			<meta charset="UTF-8">
 			<title>Pokedex</title>
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		
-
-
-
 		<script> 
 			$(document).ready(function(){
 				var pokemon_data = '';
@@ -32,34 +28,21 @@
 				 				+ "<ul><li>" + response.height + "</li></ul>" 
 				 				+ "<h5> Weight<h5>" 
 				 				+"<ul><li>" + response.weight + "</li></ul>" 	
-				 			);
-				 		
-				 		// $('p.inside-box').html("<hl>"+response.name+"</h4>");
-				 		// $('p.inside-box').html("<h4>"+response.name+"</h4>");
-				 		// $('p.inside-box').html("<h4>"+response.name+"</h4>");
-
-				 		//$('p.inside-box').html('')	
-				 	},"json")})
-				 	
-					
-
-
-
+				 			);},"json")})
 			})
-
-			
-
-
-
-
 		</script>
 		<style>
+		.header {
+			margin-bottom: 20px;
+		}
+	
+
 		.pokemons {
 			width: 950px;
 			padding: 20px; 
 			display: inline-block;
 			border: 1px solid lightgray; 
-			vertical-align: top;
+			
 		}
   		.status-insidebar {
 			width: 400px;
@@ -77,19 +60,18 @@
 			background-color: white; 
 		}	
 		</style>
-		</head>
-		<body>
-			<div class='pokemons' id='pokemon'> 
-
-			Hello 
-
-			</div>
+	</head>
+	<body>
 			
-			<div class='status-insidebar'>
-				<p class='inside-box'>
-					Data from pokemon 
-				</p>
-			</div>
+		<div class='pokemons' id='pokemon'> 
+			<!-- Pokemon Data Populates here -->
+		</div>
+		
+		<div class='status-insidebar'>
+			<p class='inside-box'>
+				
+			</p>
+		</div>
 
 
 		</body>
